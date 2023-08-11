@@ -7,6 +7,12 @@ project(dict VERSION 1.0
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g3")
 
+include(FindPkgConfig)
+pkg_check_modules(CURL libcurl REQUIRED)
+include_directories(
+  SYSTEM ${CURL_INCLUDE_DIRS}
+)
+
 if(${CMAKE_BUILD_TYPE} MATCHES Debug)
     message("Debug Build")
     add_definitions(-DDEBUG)
@@ -25,6 +31,7 @@ add_library(pugixml STATIC ${CMAKE_SOURCE_DIR}/lib/pugixml.cpp)
 
 add_executable(dict ${SOURCES})
 target_link_libraries(dict sqlite3)
-target_link_libraries(dict curl)
+target_link_libraries(dict ${CURL_LIBRARIES})
 target_link_libraries(dict pugixml)
 
+install(TARGETS dict DESTINATION bin)
