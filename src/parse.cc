@@ -103,7 +103,8 @@ void Dict::pron()
         if (has_pron()) {
             string command = "mpg123 ";
             command += get_pron_url() + " > /dev/null 2>&1";
-            system(command.c_str());
+            int ret = system(command.c_str());
+            UNUSED(ret);
         }
     }
 }

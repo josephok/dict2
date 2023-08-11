@@ -4,8 +4,8 @@ project(dict VERSION 1.0
              DESCRIPTION "query dict in terminal"
              LANGUAGES C CXX)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -g3")
 
 include(FindPkgConfig)
 pkg_check_modules(CURL libcurl REQUIRED)

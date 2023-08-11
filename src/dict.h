@@ -8,6 +8,7 @@
 enum Result {FAILED, SUCCESS};
 typedef void (*setopt_callback)(CURL *curl, const char *s);
 enum dict_type {ICIBA, BING};
+#define UNUSED(x) (void)(x)
 
 class Dict
 {

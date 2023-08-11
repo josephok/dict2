@@ -89,6 +89,8 @@ static Result create_table()
 
 static int get_id(void *id, int argc, char **argv, char **azColName)
 {
+    UNUSED(argc);
+    UNUSED(azColName);
     uint64_t *dict_id = (uint64_t *)id;
     *dict_id = strtoull(argv[0], NULL, 10);
     return 0;
@@ -178,6 +180,8 @@ void set_dict_trans(Dict *dict, string origin, string trans)
 
 static int get_dict(void *dict, int argc, char **argv, char **azColName)
 {
+    UNUSED(argc);
+    UNUSED(azColName);
     auto d = static_cast<pair<uint64_t, Dict*>*>(dict);
     set_dict(d->second, argv[0], argv[1], argv[2], argv[3], argv[4]);
     d->first = strtoull(argv[5], NULL, 10);
@@ -186,6 +190,8 @@ static int get_dict(void *dict, int argc, char **argv, char **azColName)
 
 static int get_dict_brief(void *dict, int argc, char **argv, char **azColName)
 {
+    UNUSED(argc);
+    UNUSED(azColName);
     auto d = static_cast<Dict*>(dict);
     set_dict_pos(d, argv[0], argv[1]);
     return 0;
@@ -193,6 +199,8 @@ static int get_dict_brief(void *dict, int argc, char **argv, char **azColName)
 
 static int get_dict_detail(void *dict, int argc, char **argv, char **azColName)
 {
+    UNUSED(argc);
+    UNUSED(azColName);
     auto d = static_cast<Dict*>(dict);
     set_dict_trans(d, argv[0], argv[1]);
     return 0;
