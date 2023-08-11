@@ -1,14 +1,14 @@
 # dict
 Query dict in terminal
 
-## build
+## build and install
 
 ```bash
-$ mkdir build
-$ cmake -DCMAKE_BUILD_TYPE=Release .. (for release version) or cmake -DCMAKE_BUILD_TYPE=Debug .. (for debug version)
-$ make
+$ mkdir -p build
+$ cmake -B build/ -DCMAKE_BUILD_TYPE=Release
+$ cmake --build build/
+$ cmake --install build/
 ```
-Then just copy the generated bin `dict` to $PATH.
 
 ## usage
 
